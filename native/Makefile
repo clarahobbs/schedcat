@@ -6,7 +6,7 @@
 # default: swig binary available in $PATH.
 SWIG     ?= swig
 # default: standard python in $PATH.
-PYTHON   ?= python
+PYTHON   ?= python3
 # default: assume GMP is installed in standard location.
 GMP_PATH ?= /usr
 
@@ -23,7 +23,7 @@ OS := $(shell uname)
 # How to link Python libraries?
 PYTHON_VER := ${shell ${PYTHON} --version 2>&1}
 # Default:  assume Python is in $PATH and can tell us itself where to find the headers.
-PYTHON_HEADER_DIR ?= ${shell ${PYTHON} -c "import distutils.sysconfig; print distutils.sysconfig.get_python_inc()" }
+PYTHON_HEADER_DIR ?= ${shell ${PYTHON} -c "import distutils.sysconfig; print(distutils.sysconfig.get_python_inc())" }
 PYTHON_INC ?= -I${PYTHON_HEADER_DIR}
 
 ifeq ($(OS),Darwin)
