@@ -1,5 +1,3 @@
-from itertools import izip
-
 import schedcat.locking.native as cpp
 
 # The blocking analysis needs to know which task can be preempted by which
@@ -43,7 +41,7 @@ def is_reasonable_priority_assignment(num_cpus, taskset):
     # Look for any two 'neighboring' tasks that do not satisfy the
     # "reasonable order". Ignore the m highest-priority tasks.
     relevant_tasks = taskset[num_cpus:]
-    for (ti, tj) in izip(relevant_tasks, relevant_tasks[1:]):
+    for (ti, tj) in zip(relevant_tasks, relevant_tasks[1:]):
         if ti.deadline > tj.deadline:
             return False
     return True

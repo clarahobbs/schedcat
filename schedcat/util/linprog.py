@@ -4,7 +4,6 @@ from collections import defaultdict
 
 try:
     import cplex
-    from itertools import izip
     from tempfile import NamedTemporaryFile as TmpFile
 
     cplex_available = True
@@ -207,7 +206,7 @@ class LinearProgram(object):
             # Extract the variables that we care about.
             variables = [var for (coeff, var) in self.objective_function]
             values = model.solution.get_values(variables)
-            for (var, val) in izip(variables, values):
+            for (var, val) in zip(variables, values):
                 solution[var] = val
 
             return solution
