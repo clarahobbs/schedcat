@@ -43,14 +43,14 @@ def set_priorities_david_and_burns(msgs):
 			alpha_max = int(math.ceil((m.deadline) / msgs.max_error_frame_size))
 			assert br.is_schedulable(msgs, m, alpha_max) == False
 			
-			#print alpha_min, alpha_max
+			#print(alpha_min, alpha_max)
 			while alpha_max - alpha_min > 1:
 				alpha_mid = (alpha_min + alpha_max) / 2
 				if br.is_schedulable(msgs, m, alpha_mid) == True:
 					alpha_min = alpha_mid
 				else:
 					alpha_max = alpha_mid
-				#print alpha_min, alpha_max
+				#print(alpha_min, alpha_max)
 
 			if alpha_global == None or alpha_min > alpha_global:
 				alpha_global = alpha_min

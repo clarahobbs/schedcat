@@ -1124,7 +1124,7 @@ class RTABlockingAccounting(unittest.TestCase):
         self.assertTrue(rta.is_schedulable(1, self.p1))
 
         for t in self.ts:
-            print t.partition, t.preemption_level, t.blocked, t.suspended, t.response_time, t
+            print(t.partition, t.preemption_level, t.blocked, t.suspended, t.response_time, t)
 
         # Expected inflated WCET and response times:
 

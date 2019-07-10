@@ -37,7 +37,7 @@ def load_columns(fname,
     if expect_uniform:
         for row in data:
             if len(row) != max_idx + 1:
-                print len(row), max_idx
+                print(len(row), max_idx)
                 msg = "expected uniform row length (%s:%d)" % \
                     (fname, data.index(row) + 1)
                 raise IOError(msg) # bad row length

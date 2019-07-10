@@ -225,7 +225,7 @@ def example():
     x.inequality(10, 'x1', at_most=100)
     x.inequality(-9, 'x1', 10, 'x2', at_most=99)
     x.equality(10, 'x2', equal_to=0)
-    print x
+    print(x)
 
     x.inequality(0, 'x3', at_most=1)
     x.equality(0, 'x10', equal_to=0)
