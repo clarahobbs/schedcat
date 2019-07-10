@@ -1,7 +1,7 @@
 from __future__ import division
 
 import unittest
-from StringIO import StringIO
+from io import StringIO
 from fractions import Fraction
 
 import schedcat.model.tasks as m

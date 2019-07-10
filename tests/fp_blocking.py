@@ -3,7 +3,7 @@ from __future__ import division
 import unittest
 import random
 import copy
-import StringIO
+from io import StringIO
 
 import schedcat.model.tasks as tasks
 import schedcat.model.resources as r
@@ -284,7 +284,7 @@ TASKSET = """
 
 class PFPSpinlockInflationVsILP3(unittest.TestCase):
     def setUp(self):
-        xml = StringIO.StringIO(TASKSET)
+        xml = StringIO(TASKSET)
         self.ts = ser.load(xml)
 
         lb.assign_fp_preemption_levels(self.ts)
