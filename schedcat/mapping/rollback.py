@@ -367,7 +367,7 @@ class MaxSpareCapacity(CapacityBased):
     not necessarily the same as WorstFit
     """
     def order_bins(self, bins):
-        bins.sort(key = lambda (b, c): c, reverse=True)
+        bins.sort(key = lambda b_c: b_c[1], reverse=True)
 
 
 class MinSpareCapacity(CapacityBased):
@@ -376,5 +376,5 @@ class MinSpareCapacity(CapacityBased):
     not necessarily the same as BestFit
     """
     def order_bins(self, bins):
-        bins.sort(key = lambda (b, c): c, reverse=False)
+        bins.sort(key = lambda b_c: b_c[1], reverse=False)
 
