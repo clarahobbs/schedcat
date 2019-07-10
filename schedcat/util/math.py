@@ -13,9 +13,7 @@ def lcm(*args):
     for b in args[1:]:
         if not is_integral(a) or not is_integral(b):
             # only well-defined for integers
-            raise Exception, \
-                "LCM is only well-defined for integers (got: %s, %s)" \
-                % (type(a), type(b))
+            raise TypeError("LCM is only well-defined for integers (got: {}, {})".format(type(a), type(b)))
         a = (a // gcd(a,b)) * b
     return a
 
