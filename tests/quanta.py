@@ -7,7 +7,6 @@ from fractions import Fraction
 import schedcat.overheads.quanta as q
 import schedcat.model.tasks as tasks
 
-from schedcat.util.math import is_integral
 
 class Overheads(unittest.TestCase):
     def setUp(self):
@@ -24,9 +23,9 @@ class Overheads(unittest.TestCase):
         self.assertEqual(self.ts[1].cost,  50)
         self.assertEqual(self.ts[2].cost, 100)
 
-        self.assertTrue(is_integral(self.ts[0].cost))
-        self.assertTrue(is_integral(self.ts[1].cost))
-        self.assertTrue(is_integral(self.ts[2].cost))
+        self.assertTrue(isinstance(self.ts[0].cost, int))
+        self.assertTrue(isinstance(self.ts[1].cost, int))
+        self.assertTrue(isinstance(self.ts[2].cost, int))
 
         self.assertEqual(self.ts[0].period, 1000)
         self.assertEqual(self.ts[1].period, 1050)
@@ -42,9 +41,9 @@ class Overheads(unittest.TestCase):
         self.assertEqual(self.ts[1].cost, 100)
         self.assertEqual(self.ts[2].cost, 150)
 
-        self.assertTrue(is_integral(self.ts[0].cost))
-        self.assertTrue(is_integral(self.ts[1].cost))
-        self.assertTrue(is_integral(self.ts[2].cost))
+        self.assertTrue(isinstance(self.ts[0].cost, int))
+        self.assertTrue(isinstance(self.ts[1].cost, int))
+        self.assertTrue(isinstance(self.ts[2].cost, int))
 
         self.assertEqual(self.ts[0].period, 1000)
         self.assertEqual(self.ts[1].period, 1050)
@@ -60,9 +59,9 @@ class Overheads(unittest.TestCase):
         self.assertEqual(self.ts[1].cost,  39)
         self.assertEqual(self.ts[2].cost,  51)
 
-        self.assertTrue(is_integral(self.ts[0].period))
-        self.assertTrue(is_integral(self.ts[1].period))
-        self.assertTrue(is_integral(self.ts[2].period))
+        self.assertTrue(isinstance(self.ts[0].period, int))
+        self.assertTrue(isinstance(self.ts[1].period, int))
+        self.assertTrue(isinstance(self.ts[2].period, int))
 
         self.assertEqual(self.ts[0].period, 1000)
         self.assertEqual(self.ts[1].period, 1050)
@@ -79,9 +78,9 @@ class Overheads(unittest.TestCase):
         self.assertEqual(self.ts[1].cost,  39)
         self.assertEqual(self.ts[2].cost,  51)
 
-        self.assertTrue(is_integral(self.ts[0].period))
-        self.assertTrue(is_integral(self.ts[1].period))
-        self.assertTrue(is_integral(self.ts[2].period))
+        self.assertTrue(isinstance(self.ts[0].period, int))
+        self.assertTrue(isinstance(self.ts[1].period, int))
+        self.assertTrue(isinstance(self.ts[2].period, int))
 
         self.assertEqual(self.ts[0].period,  850)
         self.assertEqual(self.ts[1].period,  900)

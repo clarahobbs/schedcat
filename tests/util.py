@@ -41,14 +41,6 @@ class Iters(unittest.TestCase):
 
 
 class Math(unittest.TestCase):
-    def test_integral(self):
-        self.assertTrue(m.is_integral(int(1)))
-        self.assertTrue(m.is_integral(long(1)))
-        self.assertFalse(m.is_integral("foo"))
-        self.assertFalse(m.is_integral(1.0))
-        self.assertFalse(m.is_integral(20 / 1))
-        self.assertFalse(m.is_integral(Fraction(100, 10)))
-
     def test_lcm(self):
         self.assertEqual(m.lcm(), 0)
         self.assertEqual(m.lcm(99), 99)

@@ -8,7 +8,6 @@ import schedcat.sched.fp as fp
 
 import schedcat.model.tasks as tasks
 
-from schedcat.util.math import is_integral
 
 class UniprocessorRTA(unittest.TestCase):
     def setUp(self):
@@ -25,9 +24,9 @@ class UniprocessorRTA(unittest.TestCase):
 
     def test_bound_is_integral(self):
         self.assertTrue(rta.is_schedulable(1, self.ts))
-        self.assertTrue(is_integral(self.ts[0].response_time))
-        self.assertTrue(is_integral(self.ts[1].response_time))
-        self.assertTrue(is_integral(self.ts[2].response_time))
+        self.assertTrue(isinstance(self.ts[0].response_time, int))
+        self.assertTrue(isinstance(self.ts[1].response_time, int))
+        self.assertTrue(isinstance(self.ts[2].response_time, int))
 
     def test_times(self):
         self.assertTrue(rta.is_schedulable(1, self.ts))
@@ -134,10 +133,10 @@ class MultiprocessorRTA(unittest.TestCase):
 
     def test_bound_is_integral(self):
         self.assertTrue(fp.is_schedulable(2, self.ts))
-        self.assertTrue(is_integral(self.ts[0].response_time))
-        self.assertTrue(is_integral(self.ts[1].response_time))
-        self.assertTrue(is_integral(self.ts[2].response_time))
-        self.assertTrue(is_integral(self.ts[3].response_time))
+        self.assertTrue(isinstance(self.ts[0].response_time, int))
+        self.assertTrue(isinstance(self.ts[1].response_time, int))
+        self.assertTrue(isinstance(self.ts[2].response_time, int))
+        self.assertTrue(isinstance(self.ts[3].response_time, int))
 
     def test_times(self):
         self.assertTrue(fp.is_schedulable(2, self.ts))
@@ -180,10 +179,10 @@ class BertognaRTA(unittest.TestCase):
 
     def test_bound_is_integral(self):
         self.assertTrue(ber.is_schedulable(3, self.ts, dont_use_slack=True))
-        self.assertTrue(is_integral(self.ts[0].response_time))
-        self.assertTrue(is_integral(self.ts[1].response_time))
-        self.assertTrue(is_integral(self.ts[2].response_time))
-        self.assertTrue(is_integral(self.ts[3].response_time))
+        self.assertTrue(isinstance(self.ts[0].response_time, int))
+        self.assertTrue(isinstance(self.ts[1].response_time, int))
+        self.assertTrue(isinstance(self.ts[2].response_time, int))
+        self.assertTrue(isinstance(self.ts[3].response_time, int))
 
     def test_times(self):
         self.assertTrue(ber.is_schedulable(3, self.ts, dont_use_slack=True))

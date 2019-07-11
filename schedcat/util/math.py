@@ -3,15 +3,13 @@ from __future__ import division
 from bisect import bisect_left as find_index
 from fractions import gcd
 
-def is_integral(x):
-    return type(x) == int or type(x) == long
 
 def lcm(*args):
     if not args:
         return 0
     a = args[0]
     for b in args[1:]:
-        if not is_integral(a) or not is_integral(b):
+        if not isinstance(a, int) or not isinstance(b, int):
             # only well-defined for integers
             raise TypeError("LCM is only well-defined for integers (got: {}, {})".format(type(a), type(b)))
         a = (a // gcd(a,b)) * b

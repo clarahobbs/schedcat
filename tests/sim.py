@@ -5,7 +5,6 @@ import unittest
 import schedcat.sim.edf as edf
 import schedcat.model.tasks as tasks
 
-from schedcat.util.math import is_integral
 
 class EDFSimulator(unittest.TestCase):
     def setUp(self):

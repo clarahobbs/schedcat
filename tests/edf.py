@@ -19,7 +19,6 @@ import schedcat.sched as sched
 
 import schedcat.model.tasks as tasks
 
-from schedcat.util.math import is_integral
 
 # TODO: add unit tests for EDF schedulability tests
 
@@ -37,9 +36,9 @@ class DA(unittest.TestCase):
 
     def test_bound_is_integral(self):
         self.assertTrue(da.bound_response_times(2, self.ts))
-        self.assertTrue(is_integral(self.ts[0].response_time))
-        self.assertTrue(is_integral(self.ts[1].response_time))
-        self.assertTrue(is_integral(self.ts[2].response_time))
+        self.assertTrue(isinstance(self.ts[0].response_time, int))
+        self.assertTrue(isinstance(self.ts[1].response_time, int))
+        self.assertTrue(isinstance(self.ts[2].response_time, int))
 
         self.assertFalse(da.bound_response_times(1, self.ts))
 
