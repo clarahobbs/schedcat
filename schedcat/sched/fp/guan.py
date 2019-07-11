@@ -12,7 +12,7 @@ from __future__ import division
 from math import ceil, floor
 
 def is_schedulable(num_cpus, tasks):
-    return all(rta_schedulable_guan(k, tasks, num_cpus) for k in xrange(len(tasks)))
+    return all(rta_schedulable_guan(k, tasks, num_cpus) for k in range(len(tasks)))
 
 bound_response_times = is_schedulable
 

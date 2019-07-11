@@ -9,14 +9,14 @@ import schedcat.model.serialize as s
 import schedcat.model.resources as r
 
 def brute_force_dbf_points_of_change(tsk, max_t, offset):
-    for t in xrange(-1, max_t + 1):
+    for t in range(-1, max_t + 1):
         cur = tsk.dbf(t + offset)
         lst = tsk.dbf(t - 1 + offset)
         if cur != lst:
             yield t
 
 def brute_force_rbf_points_of_change(tsk, max_t, offset):
-    for t in xrange(-1, max_t + 1):
+    for t in range(-1, max_t + 1):
         cur = tsk.rbf(t + offset)
         lst = tsk.rbf(t - 1 + offset)
         if cur != lst:
@@ -127,11 +127,11 @@ class TaskSystem(unittest.TestCase):
 
     def test_dbf_points_of_change(self):
         self.assertEqual(list(self.ts.dbf_points_of_change(1000, 0)),
-                         range(100, 1001, 100))
+                         list(range(100, 1001, 100)))
 
     def test_rbf_points_of_change(self):
         self.assertEqual(list(self.ts.rbf_points_of_change(1000, 0)),
-                         range(0, 1001, 100))
+                         list(range(0, 1001, 100)))
 
 class Resmodel(unittest.TestCase):
     def setUp(self):

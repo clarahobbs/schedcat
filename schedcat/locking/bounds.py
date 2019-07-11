@@ -109,7 +109,7 @@ def get_round_robin_resource_mapping(num_resources, num_cpus,
                                      dedicated_irq=cpp.NO_CPU):
     "Default resource assignment: just assign resources to CPUs in index order."
     loc   = {}
-    for res_id in xrange(num_resources):
+    for res_id in range(num_resources):
         cpu = res_id % num_cpus
         if cpu == dedicated_irq:
             cpu = (cpu + 1) % num_cpus

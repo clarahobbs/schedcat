@@ -54,7 +54,7 @@ class Overheads(object):
 
         for (name, field) in Overheads.FIELD_MAPPING + custom_fields:
             if name in data.by_name:
-                points = zip(data.by_name['TASK-COUNT'], data.by_name[name])
+                points = list(zip(data.by_name['TASK-COUNT'], data.by_name[name]))
                 if per_cpu_task_counts:
                     points = [(num_cpus * x, y) for (x, y) in points]
                 if non_decreasing:
@@ -113,7 +113,7 @@ class CacheDelay(object):
 
         for idx, name in CacheDelay.MAPPING:
             if name in data.by_name:
-                points = zip(data.by_name['WSS'], data.by_name[name])
+                points = list(zip(data.by_name['WSS'], data.by_name[name]))
                 if non_decreasing:
                     o.mem_hierarchy[idx] = monotonic_pwlin(points)
                 else:

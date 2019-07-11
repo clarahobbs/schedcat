@@ -72,8 +72,8 @@ class PieceWiseLinearEqu(object):
             return y - dy
 
         self.segments = [LinearEqu(yintercept(i), slope(i))
-                         for i in xrange(len(points) - 1)]
-        self.lookup = [points[i+1][0] for i in xrange(len(points) - 1)]
+                         for i in range(len(points) - 1)]
+        self.lookup = [points[i+1][0] for i in range(len(points) - 1)]
         self.hi     = len(self.lookup) - 1
 
     def __call__(self, x):

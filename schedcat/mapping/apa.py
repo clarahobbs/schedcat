@@ -412,7 +412,7 @@ def meta_reduce_periods(heuristic, taskset,
         # but we can try to come up with some defaults...
         candidate_periods = set()
         for t in taskset:
-            for k in xrange(1, 11):
+            for k in range(1, 11):
                 candidate_periods.add(t.period / k)
         candidate_periods = sorted(candidate_periods)
 

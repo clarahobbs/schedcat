@@ -834,7 +834,7 @@ class Test_reasonble_priority(unittest.TestCase):
 
     def setUp(self):
         self.ts = tasks.TaskSystem([
-            tasks.SporadicTask(x * 10, x * 100) for x in xrange(1, 10)
+            tasks.SporadicTask(x * 10, x * 100) for x in range(1, 10)
             ])
 
     def test_is_reasonable_priority_assignment(self):

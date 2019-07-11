@@ -29,7 +29,7 @@ def write_cplex_sum(file, sum, per_line=None):
         write_cplex_terms(file, sum[1:])
     else:
         write_cplex_terms(file, sum[1:per_line])
-        for i in xrange(per_line, len(sum), per_line):
+        for i in range(per_line, len(sum), per_line):
             file.write('\n  ')
             write_cplex_terms(file, sum[i:i+per_line])
 
@@ -104,18 +104,18 @@ class LinearProgram(object):
         assert len(args) % 2 == 0 # num coefficients == num variables?
         assert len(kargs) == 1 and 'equal_to' in kargs # constraint?
 
-        vector = zip(args[0::2], args[1::2])
+        vector = list(zip(args[0::2], args[1::2]))
         self.add_equality(vector, kargs['equal_to'])
 
     def inequality(self, *args, **kargs):
-        """Specify inequality constraint as:
+        """Specify inequality constraint as:)
 
             inequality(coeff1, var1, coeff2, var2, ..., at_most=value)
         """
         assert len(args) % 2 == 0 # num coefficients == num variables?
         assert len(kargs) == 1 and 'at_most' in kargs # constraint?
 
-        vector = zip(args[0::2], args[1::2])
+        vector = list(zip(args[0::2], args[1::2]))
         self.add_inequality(vector, kargs['at_most'])
 
     def objective(self, *args):
@@ -125,7 +125,7 @@ class LinearProgram(object):
         """
         assert len(args) % 2 == 0 # num coefficients == num variables?
 
-        vector = zip(args[0::2], args[1::2])
+        vector = list(zip(args[0::2], args[1::2]))
         self.set_objective(vector)
 
     ## Helper for model conversion

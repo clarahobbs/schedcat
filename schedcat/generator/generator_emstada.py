@@ -118,7 +118,7 @@ def StaffordRandFixedSum(n, u, nsets):
 
     #iterated in fixed dimension order but needs to be randomised
     #permute x row order within each column
-    for i in xrange(0,m):
+    for i in range(0,m):
         x[...,i] = x[numpy.random.permutation(n),i]
 
     return numpy.transpose(x);
@@ -133,7 +133,7 @@ def gen_periods(n, nsets, min, max, gran, dist):
         # Interpret as set of pre-defined periods to choose from.
         assert nsets == 1
         # avoid numpy.random.choice() because we need to be compatible with 1.6.X
-        periods = [random.choice(dist) for _ in xrange(n)]
+        periods = [random.choice(dist) for _ in range(n)]
         # wrap in numpy types
         periods = numpy.array(periods)
         periods.shape = (1, n)

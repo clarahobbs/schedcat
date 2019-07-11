@@ -354,7 +354,7 @@ class BestFit(FitBased):
 
 class CapacityBased(Heuristic):
     def select_bins_for_item(self, item):
-        bins = zip(self.bins, [b.spare_capacity() for b in self.bins])
+        bins = list(zip(self.bins, [b.spare_capacity() for b in self.bins]))
         self.order_bins(bins)
         for (b, _) in bins:
             if not b.infeasible_to_fit(item):
