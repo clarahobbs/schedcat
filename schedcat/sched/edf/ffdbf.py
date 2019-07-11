@@ -99,7 +99,7 @@ def is_schedulable(cpus, ts,
     sigma_vals  = iter(brute_force_sigma_values(ts, step=sigma_step))
 
     schedulable = False
-    sigma_cur = sigma_vals.next()
+    sigma_cur = next(sigma_vals)
     t_cur = 0
 
     while not schedulable and max_density <= sigma_cur <= sigma_bound:
@@ -114,7 +114,7 @@ def is_schedulable(cpus, ts,
 
                 while True:
                     # search next sigma value
-                    sigma_nxt = sigma_vals.next()
+                    sigma_nxt = next(sigma_vals)
                     if not (max_density <= sigma_nxt <= sigma_bound):
                         # out of bounds, give up
                         sigma_cur = 2
