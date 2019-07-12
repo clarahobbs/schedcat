@@ -3,24 +3,24 @@
 from heapq        import heapify, heappop, heappush
 
 class PrioObj(object):
-    def __init__(self, val, le):
+    def __init__(self, val, lt):
         self.val = val
-        self.le  = le
+        self.lt  = lt
 
     def __str__(self):
         return str(self.val)
 
-    def __le__(self, other):
-        return self.le(self.val, other.val)
+    def __lt__(self, other):
+        return self.lt(self.val, other.val)
 
 
-def imerge(le, *iters):
+def imerge(lt, *iters):
     nxtheap = []
-    _le = lambda a, b: le(a[0], b[0])
+    _lt = lambda a, b: lt(a[0], b[0])
     for i in iters:
         try:
             it = iter(i)
-            nxtheap.append(PrioObj((next(it), it), _le))
+            nxtheap.append(PrioObj((next(it), it), _lt))
         except StopIteration:
             pass
     heapify(nxtheap)
