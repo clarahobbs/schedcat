@@ -50,9 +50,9 @@ class Math(unittest.TestCase):
 
     def test_topsum(self):
         vals = [30, 60, 10, 40, 50, 20]
-        self.assertEqual(m.topsum(vals, lambda x: x * 2, 3), 2 * (40 + 50 + 60))
-        self.assertEqual(m.lcm(99), 99)
-        self.assertEqual(m.lcm(10, 20, 3), 60)
+        self.assertEqual(m.topsum(vals, 3), 40 + 50 + 60)
+        vals = [64, 256, 1, 8, 128, 2, 32, 16, 4]
+        self.assertEqual(m.topsum(vals, 4), 256 + 128 + 64 + 32)
 
 
 class LinEqs(unittest.TestCase):

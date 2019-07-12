@@ -48,12 +48,12 @@ def task_schedulable_for_offset(all_tsks, tsk_k, a_k, m):
     """Tests condition 8 from the paper"""
     I1s    = [I1(tsk_i, tsk_k, a_k) for tsk_i in all_tsks]
     Idiffs = [I2(tsk_i, tsk_k, a_k) - i1 for (tsk_i, i1) in zip(all_tsks, I1s)]
-    Idiff  = topsum(Idiffs, None, m -1)
+    Idiff  = topsum(Idiffs, m - 1)
     return sum(I1s) + Idiff <= m * (a_k + tsk_k.deadline - tsk_k.cost)
 
 def ak_bounds(all_tsks, m):
     U = all_tsks.utilization()
-    c_sigma = topsum(all_tsks, lambda t: t.cost, m - 1)
+    c_sigma = topsum((t.cost for t in all_tsks), m - 1)
     y = sum([(t.period - t.deadline) * t.utilization() for t in all_tsks])
     mu      = m - U
     def ak_bound(tsk_k):

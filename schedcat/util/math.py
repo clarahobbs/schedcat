@@ -2,6 +2,7 @@ from __future__ import division
 
 from bisect import bisect_left as find_index
 from fractions import gcd
+from heapq import nlargest
 
 
 def lcm(*args):
@@ -15,11 +16,9 @@ def lcm(*args):
         a = (a // gcd(a,b)) * b
     return a
 
-def topsum(lst, fun, n):
-    """return the sum of the top n items of map(fun, lst)"""
-    x = map(fun, lst)
-    x.sort(reverse=True)
-    return sum(x[0:n])
+def topsum(iterable, n):
+    """Returns the sum of the top n items of iterable"""
+    return sum(nlargest(n, iterable))
 
 class LinearEqu(object):
     def __init__(self, a, b):
