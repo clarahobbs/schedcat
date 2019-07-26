@@ -45,7 +45,7 @@ def set_priorities_david_and_burns(msgs):
 			
 			#print(alpha_min, alpha_max)
 			while alpha_max - alpha_min > 1:
-				alpha_mid = (alpha_min + alpha_max) / 2
+				alpha_mid = (alpha_min + alpha_max) // 2
 				if br.is_schedulable(msgs, m, alpha_mid) == True:
 					alpha_min = alpha_mid
 				else:

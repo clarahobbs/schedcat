@@ -14,7 +14,7 @@ def get_prob_correct_sync(k, pc):
     """prob = \sum_{l=0}^{ceil(k/2)-1} (k_choose_l) * (pc)^l * (1 - pc)^(k-l)
     """
     retval = 0
-    lmax = mpmath.ceil(float(k)/2) - 1
+    lmax = int(mpmath.ceil(float(k)/2)) - 1
     for l in range(0, lmax + 1):
         retval += mpmath.binomial(k,l) * mpmath.power(pc, l) * \
             mpmath.power(1 - pc, k - l)
